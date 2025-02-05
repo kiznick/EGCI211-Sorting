@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     cout << "Before sorting: ";
     display(a, N);
 
-    bubbleSort(a, N);
+    insertionSort(a, N);
     cout << "After sorting: ";
     display(a, N);
 
