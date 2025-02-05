@@ -18,11 +18,10 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    int N;
-    int *a = new int[argc - 2];
+    int N = argc - 2;
+    int *a = new int[N];
     parse(argc, argv, a);
 
-    N = argc - 1;
     cout << "Before sorting: ";
     display(a, N);
 

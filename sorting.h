@@ -9,7 +9,8 @@ void parse(int argc, char *argv[], int output[])
 {
     for (int i = 2; i < argc; i++)
     {
-        output[i - 1] = atoi(argv[i]);
+        output[i - 2] = atoi(argv[i]);
+        // cout << "argv[" << i << "]: " << argv[i] << endl;
     }
 }
 
@@ -22,7 +23,6 @@ void swap(int &a, int &b)
 
 void bubbleSort(int *a, int N)
 {
-    int moveCount = 0;
     for (int i = 0; i < N - 1; i++)
     {
         for (int j = 0; j < N - i - 1; j++)
@@ -30,17 +30,14 @@ void bubbleSort(int *a, int N)
             if (a[j] > a[j + 1])
             {
                 swap(a[j], a[j + 1]);
-                moveCount++;
+                display(a, N);
             }
         }
     }
-
-    cout << "MoveCount: " << moveCount << endl;
 }
 
 void selectionSort(int *a, int N)
 {
-    int moveCount = 0;
     for (int i = 0; i < N - 1; i++)
     {
         int minIndex = i;
@@ -52,15 +49,12 @@ void selectionSort(int *a, int N)
             }
         }
         swap(a[i], a[minIndex]);
-        moveCount++;
+        display(a, N);
     }
-
-    cout << "MoveCount: " << moveCount << endl;
 }
 
 void insertionSort(int *a, int N)
 {
-    int moveCount = 0;
     for (int i = 1; i < N; i++)
     {
         // cout << "i " << i << endl;
@@ -70,13 +64,11 @@ void insertionSort(int *a, int N)
             if (a[j] < a[j - 1])
             {
                 swap(a[j], a[j - 1]);
-                moveCount++;
+                display(a, N);
                 // cout << "Swap " << j << " with " << j - 1 << endl;
             }
         }
     }
-
-    cout << "MoveCount: " << moveCount << endl;
 }
 
 void display(int *a, int N)
